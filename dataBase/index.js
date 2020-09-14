@@ -17,8 +17,8 @@ module.exports = (() => {
             fs.readdir(path.join(process.cwd(), 'dataBase', 'models'), (err, files)=> {
                 files.forEach(file => {
                     const [modelName] = file.split('.');
-                    models[modelName] = (require(path.join(process.cwd(),'dataBase', 'models', modelName)))
-                    (client, DataTypes)
+                    // models[modelName] = (require(path.join(process.cwd(),'dataBase', 'models', modelName)))
+                    // (client, DataTypes)
                 })
             })
         }
