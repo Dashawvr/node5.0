@@ -8,7 +8,7 @@ instance.setModels()
 
 app.use('/api', apiRouter);
 
-app.use('*', (err, req, res, next)=> {
+app.use('*', (err, req, res, next) => {
      res
          .status(err.status || 404)
          .join({

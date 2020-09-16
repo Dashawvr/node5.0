@@ -3,9 +3,11 @@ const apiRouter = Router();
 
 const {userRouter, carRouter, authRouter} = require('../routes');
 
-apiRouter.use('/users', userRouter);
-apiRouter.use('/cars', carRouter);
 apiRouter.use('/auth', authRouter);
+apiRouter.use('/cars', carRouter);
+apiRouter.use('/users', userRouter);
+
+
 
 
 module.exports = apiRouter;

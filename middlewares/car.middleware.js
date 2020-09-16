@@ -1,8 +1,8 @@
-const {ErrorHandler, errors, statusCodeEnum} = require('../error');
-const {carValidator:  {carValidator}} = require('../validators');
+const { ErrorHandler, errors, statusCodeEnum } = require('../error');
+const { carValidator:  {carValidator} } = require('../validators');
 
 module.exports = {
-    carsValid: (req, res, next) => {
+    carValidation: (req, res, next) => {
         try {
             const car = req.body;
             const {error} = carValidator.validate(car);
