@@ -1,32 +1,29 @@
-const { ErrorHandler, errors, statusCodeEnum } = require('../error');
-const  { userService } = require('../services');
+const {ErrorHandler, errors, statusCodeEnum} = require('../error');
+const {userService} = require('../services');
+const {userValidator: {userValidator}} = require('../validators');
 
 module.exports = {
     userValidation: (req, res, next) => {
         try {
             const user = req.body;
-            if (!user.name) {
+            const {error} = userValidator.validate(user);
+
+            if (error) {
                 return next(new ErrorHandler(
-                    errors.BAD_REQUEST_NO_USER.message,
+                    error.details[0].message,
                     statusCodeEnum.BAD_REQUEST,
                     errors.BAD_REQUEST_NO_USER.code))
-            }
-            if (!user.password || user.password.length < 6) {
-                return next(new ErrorHandler(
-                    errors.BAD_REQUEST_TOO_WEAK_PASS.message,
-                    statusCodeEnum.BAD_REQUEST,
-                    errors.BAD_REQUEST_TOO_WEAK_PASS.code))
-            }
-
+            };
             next();
         } catch (e) {
             next(e);
         }
+
     },
-    emailValidation: (req, res, next) => {
+    emailValidation: async (req, res, next) => {
         try {
-            const { email } = req.body;
-            const user = userService.findByEmail( {email});
+            const {email} = req.body;
+            const user = await userService.findByEmail({email});
             if (!user) {
                 return next(new ErrorHandler(
                     errors.NOT_FOUND_PERSON.message,
@@ -35,10 +32,8 @@ module.exports = {
             }
             req.user = user;
             next();
-        }
-        catch (e) {
+        } catch (e) {
             next(e);
         }
-        
     }
 }

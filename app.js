@@ -14,8 +14,7 @@ app.use('*', (err, req, res, next)=> {
          .join({
              message: err.message || 'not found',
              code: err.customCode || ''
-         })
-
+         });
 })
 
 app.listen('5000', (err)=> {

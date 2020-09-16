@@ -10,7 +10,7 @@ carRouter.get('/:id', carController.getCarId);
 // // // create
 carRouter.post('/', carMiddleware.carsValid, carController.createCar);
 // // //update
-carRouter.put('/:id',carMiddleware.carsValid, carController.updateCar);
+// carRouter.put('/:id',carMiddleware.carsValid, carController.updateCar);
 // // // delete
 carRouter.delete('/:id', carController.destroyCar);
 

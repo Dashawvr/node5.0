@@ -5,7 +5,7 @@ const {userRouter, carRouter, authRouter} = require('../routes');
 
 apiRouter.use('/users', userRouter);
 apiRouter.use('/cars', carRouter);
-apiRouter.use('/auth', authRouter)
+apiRouter.use('/auth', authRouter);
 
 
 module.exports = apiRouter;

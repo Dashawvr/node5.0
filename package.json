@@ -12,11 +12,13 @@
   "dependencies": {
     "bcrypt": "^5.0.0",
     "express": "^4.17.1",
+    "joi": "^17.2.1",
     "mysql2": "^2.1.0",
     "sequelize": "^6.3.4"
   },
   "devDependencies": {
     "sequelize-cli": "^6.2.0",
-    "@types/sequelize": "^4.28.9"
+    "@types/sequelize": "^4.28.9",
+    "@types/joi": "^14.3.4"
   }
 }
