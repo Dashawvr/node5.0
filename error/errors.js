@@ -19,4 +19,8 @@ module.exports = {
         message: 'Undefined year. Please check year again',
         code: 4005
     },
+    NOT_FOUND_PERSON: {
+        message: 'User not found',
+        code: 4041
+    }
 }

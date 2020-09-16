@@ -4,7 +4,7 @@ module.exports = {
     createCar: async (req, res) => {
         try {
             const car = await carService.createCar(req.body)
-            res.status(201).json(car);
+            res.json(car);
         }
         catch (e) {
             res.end(e.message);
@@ -40,7 +40,7 @@ module.exports = {
     destroyCar: async (req, res) => {
         try {
             const car = await carService.deleteCar(+req.params.id)
-            res.status(200).json(car);
+            res.json(car);
         }
         catch (e) {
             res.end(e.message);

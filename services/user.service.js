@@ -19,9 +19,14 @@ module.exports = {
             }
         })
     },
-
     create: (userObject) => {
         const User = connection.getModel('User');
         return User.create(userObject, {new: true});
+    },
+    findByEmail: (emailObj) => {
+        const User = connection.getModel('User');
+        return User.findOne({
+            where: emailObj
+        })
     }
 }
